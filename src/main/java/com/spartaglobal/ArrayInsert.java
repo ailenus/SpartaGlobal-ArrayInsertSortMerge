@@ -7,44 +7,44 @@ import java.util.List;
 public class ArrayInsert {
 
     // converting the array to a list first and then sorting using libraries
-    public static int[] insert1(int[] integers, int value) {
-        List<Integer> integerList = new ArrayList<>();
-        for (int integer : integers) {
-            integerList.add(integer);
+    public static int[] insert1(int[] array, int value) {
+        List<Integer> list = new ArrayList<>();
+        for (int integer : array) {
+            list.add(integer);
         }
-        integerList.add(value);
-        Collections.sort(integerList);
+        list.add(value);
+        Collections.sort(list);
     
-        return integerList.stream().mapToInt(Integer::intValue).toArray();
+        return list.stream().mapToInt(Integer::intValue).toArray();
     }
 
     // manual quicksort implementation
-    public static int[] insert2(int[] integers, int value) {
-        int length = integers.length;
-        int[] integersResult = new int[length + 1];
-        System.arraycopy(integers, 0, integersResult, 0, integers.length);
-        integersResult[length] = value;
+    public static int[] insert2(int[] array, int value) {
+        int length = array.length;
+        int[] result = new int[length + 1];
+        System.arraycopy(array, 0, result, 0, array.length);
+        result[length] = value;
     
-        ArrayInsert.quicksort(integersResult, 0, length);
+        ArrayInsert.quicksort(result, 0, length);
     
-        return integersResult;
+        return result;
     }
 
     // private helper methods for quicksort
-    private static void quicksort(int[] array, int begin, int end) {
-        if (begin < end) {
-            int partitionIndex = partition(array, begin, end);
+    private static void quicksort(int[] array, int start, int end) {
+        if (start < end) {
+            int partitionIndex = partition(array, start, end);
     
-            quicksort(array, begin, partitionIndex - 1);
+            quicksort(array, start, partitionIndex - 1);
             quicksort(array, partitionIndex + 1, end);
         }
     }
 
-    private static int partition(int[] array, int begin, int end) {
+    private static int partition(int[] array, int start, int end) {
         int pivot = array[end];
-        int index = (begin - 1);
+        int index = (start - 1);
     
-        for (int i = begin; i < end; i++) {
+        for (int i = start; i < end; i++) {
             if (array[i] <= pivot) {
                 index++;
                 int temp = array[index];
