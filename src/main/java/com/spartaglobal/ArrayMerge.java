@@ -2,6 +2,7 @@ package com.spartaglobal;
 
 public class ArrayMerge {
 
+    // takes two sorted arrays and returns a merged sorted array
     public static int[] merge(int[] array1, int[] array2) {
         int length1 = array1.length;
         int length2 = array2.length;

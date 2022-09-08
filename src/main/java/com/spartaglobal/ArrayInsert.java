@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ArrayInsert {
 
-    // using libraries
+    // converting the array to a list first and then sort using libraries
     public static int[] insert1(int[] integers, int value) {
         List<Integer> integerList = new ArrayList<>();
         for (int integer : integers) {
