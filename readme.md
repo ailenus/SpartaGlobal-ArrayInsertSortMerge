@@ -77,10 +77,10 @@ output. This is fairly straightforward.
 
 ## Remarks on execution speed
 
-For the two inserting and sorting methods in the `ArrayInsert` class, there is
-notable difference in performance in execution speed. At 100,000 length, on my
-local personal machine, the unit test for the `insert2` method usually takes
-less than 40 milliseconds to finish, while the unit test for the `insert1`
-method consistently takes approximately 50 milliseconds longer. The extra
-execution time likely comes from the overhead of converting the array into a
-list and then converting the list back to an array.
+Between the two inserting and sorting methods in the `ArrayInsert` class, there
+is notable difference in performance. At 100,000 length, on my local personal
+machine, the unit test for the `insert2` method usually takes less than 40
+milliseconds to finish, while the unit test for the `insert1` method
+consistently takes 50 milliseconds longer than `insert2`. The extra execution
+time likely comes from the overhead of converting the array into a list and
+then converting the list back to an array.
