@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ArrayInsert {
 
-    // converting the array to a list first and then sort using libraries
+    // converting the array to a list first and then sorting using libraries
     public static int[] insert1(int[] integers, int value) {
         List<Integer> integerList = new ArrayList<>();
         for (int integer : integers) {
@@ -33,7 +33,7 @@ public class ArrayInsert {
     // private helper methods for quicksort
     private static void quicksort(int[] array, int begin, int end) {
         if (begin < end) {
-            int partitionIndex = ArrayInsert.partition(array, begin, end);
+            int partitionIndex = partition(array, begin, end);
     
             quicksort(array, begin, partitionIndex - 1);
             quicksort(array, partitionIndex + 1, end);
