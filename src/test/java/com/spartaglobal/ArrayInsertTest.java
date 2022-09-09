@@ -5,34 +5,54 @@ import static org.junit.Assert.assertTrue;
 import java.util.Arrays;
 import java.util.Random;
 
-import org.junit.Before;
 import org.junit.Test;
 
 public class ArrayInsertTest {
 
-    private final int BOUND = Integer.MAX_VALUE;
-    private final int LENGTH = 100_000;
+    private int[] input;
+    private int value;
+    private int[] result;
 
-    private int[] input = App.generateRandomIntArray(LENGTH, BOUND);
-    private int value = new Random().nextInt(BOUND);
+    private void initialise(int length, int bound) {
+        input = App.generateRandomIntArray(length, bound);
+        value = new Random().nextInt(bound);
+        result = new int[length + 1];
 
-    private int[] result = new int[LENGTH + 1];
-
-    @Before
-    public void initialise() {
-        System.arraycopy(input, 0, result, 0, LENGTH);
-        result[LENGTH] = value;
+        System.arraycopy(input, 0, result, 0, length);
+        result[length] = value;
         Arrays.sort(result);
     }
 
-    @Test
-    public void testInsert1() {
-        assertTrue(Arrays.equals(ArrayInsert.insert1(input, value), result));
+    private boolean test1(int[] input, int value, int[] result) {
+        return Arrays.equals(ArrayInsert.insert1(input, value), result);
+    }
+
+    private boolean test2(int[] input, int value, int[] result) {
+        return Arrays.equals(ArrayInsert.insert2(input, value), result);
     }
 
     @Test
-    public void testInsert2() {
-        assertTrue(Arrays.equals(ArrayInsert.insert2(input, value), result));
+    public void testInsert1Large() {
+        initialise(100_000, Integer.MAX_VALUE);
+        assertTrue(test1(input, value, result));
+    }
+
+    @Test
+    public void testInsert1Zero() {
+        initialise(0, 1);
+        assertTrue(test1(input, value, result));
+    }
+
+    @Test
+    public void testInsert2Large() {
+        initialise(100_000, Integer.MAX_VALUE);
+        assertTrue(test2(input, value, result));
+    }
+
+    @Test
+    public void testInsert2Zero() {
+        initialise(0, 1);
+        assertTrue(test2(input, value, result));
     }
 
 }

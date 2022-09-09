@@ -46,29 +46,25 @@ and takes two integer parametres, one for specifying the desired length of the
 randomly generated array and the other for specifying the upper bound of the
 integer values that should be generated.
 
-The `ArrayInsertTest` class generates a random integer array using the
-abovementioned method as well as a random integer value. It then declares a
-new integer array that would be the correct result after inserting and sorting.
-The correct result is obtained using the `initialise` method, which copies the
-randomly generated array into the result array and assigns the last value as the
-randomly generated integer value, before invoking the `sort` method from the
-`java.util.Arrays` class. This method is invoked before all unit tests via the
-`@Before` annotation.
+Both the `ArrayInsertTest` and the `ArrayMergeTest` classes contain a helper
+method `initialise`, containing parametres about the lengths and bound of the
+integer arrays to be test, which is invoked in all tests before the assertions
+to generate random integer arrays according to the parametres passed. The
+purpose is to simplify the process of testing different lengths and bounds
+conditions. The `initialise` methods in both unit test classes generate random
+integer arrays using the abovementioned `generateRandomIntArray` method. The
+initialisation method also initialises the correct result array using methods
+from the standard library.
 
-Two unit tests can then be performed for either of the two insertion and
-sorting methods. Both use the `equals` method of the `java.util.Arrays` class
-to compare the return result of their respective testee methods and the
-initialised result array.
+Both unit test classes also contain private helper methods that return boolean
+values to be passed into assertions, to help remove redundant code.
 
-The `ArrayMergeTest` class similarly generates two random integer arrays using
-the `generateRandomIntArray` method from the main class. It similarly contains
-an `initialise` method that generates a correct result for merged array as well
-as sorting the two arrays using library method. The unit test then also
-similarly compares the return result of its testee and the initialised correct
-result.
+The `ArrayInsertTest` class contains four unit tests, two for each of the two
+insertion and sorting methods from `ArrayInsert`. One tests large values of
+lengths and bounds, and the other tests lower boundary values.
 
-The use of randomly generated integer arrays and integer values, notably, makes
-each run of the unit tests unique and further ensure correctness.
+The `ArrayMergeTest` class contains two unit tests for the merging method from
+`ArrayMerge`, similarly testing large and lower boundary values.
 
 ## Program execution
 
