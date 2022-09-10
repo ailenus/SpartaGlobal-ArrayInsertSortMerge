@@ -10,8 +10,8 @@ comparable elements. The type `int` is chosen for simplicity.
 The class `ArrayInsert` contains two methods for inserting an integer into an
 existing integer array and returning a sorted array after insertion. The first
 method, `insert1`, uses classes and methods contained in the Java standard
-library, while the second method, `insert2`, uses a manual implementation of
-the quicksort algorithm.
+library, while the second method, `insert2`, uses a manual implementation of the
+quicksort algorithm.
 
 Specifically, `insert1` first converts the given integer array into an
 `java.util.ArrayList` of type `Integer`. It then adds the given primitive
@@ -28,9 +28,9 @@ of the quicksort algorithm to sort the array.
 
 ## Merging
 
-The class `ArrayMerge` contains one method for merging two sorted integer
-arrays and return the merged array. The implementation of this `merge` method
-is fairly standard.
+The class `ArrayMerge` contains one method for merging two sorted integer arrays
+and return the merged array. The implementation of this `merge` method is fairly
+standard.
 
 ## Unit tests
 
@@ -41,18 +41,18 @@ contains testing for the two insertion and sorting methods from the
 merging method in the `ArrayMerge` class.
 
 Both unit testing classes use a method from the main class, `App`, to help
-generate random integer arrays. The method is named `generateRandomIntArray`
-and takes two integer parametres, one for specifying the desired length of the
+generate random integer arrays. The method is named `generateRandomIntArray` and
+takes two integer parameters, one for specifying the desired length of the
 randomly generated array and the other for specifying the upper bound of the
 integer values that should be generated.
 
 Both the `ArrayInsertTest` and the `ArrayMergeTest` classes contain a helper
-method `initialise`, containing parametres about the lengths and bound of the
+method `initialise`, containing parameters about the lengths and bound of the
 integer arrays to be test, which is invoked in all tests before the assertions
-to generate random integer arrays according to the parametres passed. The
+to generate random integer arrays according to the parameters passed. The
 purpose is to simplify the process of testing different lengths and bounds
 conditions. The `initialise` methods in both unit test classes generate random
-integer arrays using the abovementioned `generateRandomIntArray` method. The
+integer arrays using the aforementioned `generateRandomIntArray` method. The
 initialisation method also initialises the correct result array using methods
 from the standard library.
 
@@ -78,5 +78,5 @@ is notable difference in performance. At 100,000 length, on my local personal
 machine, the unit test for the `insert2` method usually takes less than 40
 milliseconds to finish, while the unit test for the `insert1` method
 consistently takes 50 milliseconds longer than `insert2`. The extra execution
-time likely comes from the overhead of converting the array into a list and
-then converting the list back to an array.
+time likely comes from the overhead of converting the array into a list and then
+converting the list back to an array.
